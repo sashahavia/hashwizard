@@ -35,13 +35,18 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.285.1",
     "axios": "^0.15.3",
+    "bluebird": "^3.5.1",
     "compression": "^1.7.1",
     "connect-session-sequelize": "^4.1.0",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "file-type": "^8.1.0",
+    "fs": "0.0.1-security",
     "history": "^4.6.3",
     "morgan": "^1.8.1",
+    "multiparty": "^4.2.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
     "pg": "^6.1.2",
@@ -55,7 +60,8 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.3.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
