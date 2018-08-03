@@ -44,11 +44,12 @@ class FileUpload extends Component {
       )
     } else {
       return (
-        <div className="popup">
-          <div className="wrapper">
-            <ShowImage />
-          </div>
+        // <div className="popup">
+        //   <div className="wrapper">
+        <div className="row main">
+          <ShowImage />
         </div>
+        // </div>
       )
     }
   }

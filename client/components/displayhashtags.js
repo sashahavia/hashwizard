@@ -6,7 +6,7 @@ import {deleteData} from '../store/googledata'
 const DisplayHashtags = ({data, handleClick}) => {
   if (Object.keys(data).length > 0) {
     return (
-      <div>
+      <div className="right-view">
         {/* <div className="box"> */}
         <button type="button" onClick={handleClick} className="btn btn-primary">
           Upload new image

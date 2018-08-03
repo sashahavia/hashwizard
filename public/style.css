@@ -36,11 +36,18 @@ form div {
   left: -50%;
 }
 
-.box {
+/* .box {
   padding: 2em;
   width: 100%;
   height: 100%;
   overflow: auto;
+} */
+.main {
+  margin-left: 2.5em;
+}
+
+.right-view {
+  margin-left: 2.5em;
 }
 
 .box img {

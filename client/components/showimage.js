@@ -8,23 +8,23 @@ const ShowImage = ({image, handleClick}) => {
     return <div className="box">{/* <p>Upload an image to start</p> */}</div>
   } else {
     return (
-      <div className="box">
-        <div className="row">
-          <div className="col-sm">
-            <img src={image} />
-            <button
-              type="button"
-              onClick={() => handleClick(image)}
-              className="btn btn-primary"
-            >
-              Get hash tags
-            </button>
-          </div>
-          <div className="col-sm">
-            <DisplayHashtags />
-          </div>
+      // <div className="box">
+      <div className="row box">
+        <div className="col-sm">
+          <img src={image} />
+          <button
+            type="button"
+            onClick={() => handleClick(image)}
+            className="btn btn-primary"
+          >
+            Get hash tags
+          </button>
+        </div>
+        <div className="col-sm">
+          <DisplayHashtags />
         </div>
       </div>
+      // </div>
     )
   }
 }
