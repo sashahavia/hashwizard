@@ -49,14 +49,10 @@ const getWords = data => {
 
 export const getImageData = image => {
   return async dispatch => {
-    console.log('Data in thunk', image)
-    console.log('Data in thunk json', JSON.stringify(image))
+    // console.log('Data in thunk', image)
     try {
-      const {data} = await axios.post(
-        'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCjU8HDo9M7z5DVKYmXMgZTtgxk5QepGzc',
-        image
-      )
-      console.log('Response ', data.responses[0])
+      const {data} = await axios.post('api/google/api', image)
+      // console.log('Response ', data.responses[0])
       const words = getWords(data.responses[0])
       console.log('received words ', words)
       dispatch(getData(words))
