@@ -1,8 +1,13 @@
 import axios from 'axios'
-
+/**
+ * ACTION TYPES
+ */
 const GET_DATA = 'GET_DATA'
 const DELETE_DATA = 'DELETE_DATA'
 
+/**
+ * ACTION CREATORS
+ */
 const getData = data => ({
   type: GET_DATA,
   data
@@ -15,18 +20,21 @@ export const deleteData = () => ({
 const getValues = (data, hashtags) => {
   for (let j = 0; j < data.length; j++) {
     if (data[j].joyLikelihood === 'VERY_LIKELY') {
-      hashtags.push('#happy')
+      hashtags.push('happy')
     }
     if (data[j].surpriseLikelihood === 'VERY_LIKELY') {
-      hashtags.push('#surprise')
+      hashtags.push('surprise')
     }
   }
   return hashtags
 }
 
+/**
+ * HELPER FUNCTIONS
+ */
 const getValuesTwo = (data, hashtags) => {
   for (let i = 0; i < data.length; i++) {
-    hashtags.push('#' + data[i].description)
+    hashtags.push(data[i].description)
   }
 }
 
@@ -46,6 +54,10 @@ const getWords = data => {
   let unique = [...new Set(hashtags)]
   return unique
 }
+
+/**
+ * THUNK CREATORS
+ */
 
 export const getImageData = image => {
   return async dispatch => {
