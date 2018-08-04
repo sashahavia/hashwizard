@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {deleteImage} from '../store/image'
 import {deleteData} from '../store/googledata'
 import {translateHashtags, deleteTranslation} from '../store/translate'
+import SelectLanguage from './selectlanguage'
 
 const DisplayHashtags = ({data, translatedData, handleClick, handleSubmit}) => {
   if (data.length > 0) {
@@ -18,21 +19,7 @@ const DisplayHashtags = ({data, translatedData, handleClick, handleSubmit}) => {
             Upload new image
           </button>
 
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="language">Language</label>
-              <select className="form-control" name="language">
-                <option value="es">Spanish</option>
-                <option value="ru">Russian</option>
-                <option value="de">German</option>
-                <option value="it">Italian</option>
-                <option value="fr">French</option>
-              </select>
-            </div>
-            <button type="submit" className="btn btn-info">
-              Translate
-            </button>
-          </form>
+          <SelectLanguage handleSubmit={handleSubmit} />
         </div>
         <h4>
           {data.map(hashtag => (
@@ -52,7 +39,13 @@ const DisplayHashtags = ({data, translatedData, handleClick, handleSubmit}) => {
       </div>
     )
   } else {
-    return <div className="box">{/* <p>Data is loading...</p> */}</div>
+    return (
+      <div className="box">
+        {/* <i className="fas fa-spinner fa-pulse"> */}
+        {/* <p>Data is loading...</p> */}
+        {/* </i> */}
+      </div>
+    )
   }
 }
 

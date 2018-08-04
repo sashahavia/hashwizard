@@ -11,14 +11,16 @@ const ShowImage = ({image, handleClick}) => {
       // <div className="box">
       <div className="row box">
         <div className="col-sm">
-          <img src={image} />
-          <button
-            type="button"
-            onClick={() => handleClick(image)}
-            className="btn btn-primary"
-          >
-            Get hash tags
-          </button>
+          <div className="right-view">
+            <img src={image} />
+            <button
+              type="button"
+              onClick={() => handleClick(image)}
+              className="btn btn-primary"
+            >
+              Get hash tags
+            </button>
+          </div>
         </div>
         <div className="col-sm">
           <DisplayHashtags />

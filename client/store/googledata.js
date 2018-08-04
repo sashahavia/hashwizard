@@ -20,10 +20,10 @@ export const deleteData = () => ({
 const getValues = (data, hashtags) => {
   for (let j = 0; j < data.length; j++) {
     if (data[j].joyLikelihood === 'VERY_LIKELY') {
-      hashtags.push('happy')
+      hashtags.push('happy ')
     }
     if (data[j].surpriseLikelihood === 'VERY_LIKELY') {
-      hashtags.push('surprise')
+      hashtags.push('surprise ')
     }
   }
   return hashtags
@@ -34,7 +34,7 @@ const getValues = (data, hashtags) => {
  */
 const getValuesTwo = (data, hashtags) => {
   for (let i = 0; i < data.length; i++) {
-    hashtags.push(data[i].description)
+    hashtags.push(data[i].description + ' ')
   }
 }
 

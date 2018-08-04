@@ -22,7 +22,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/signup">Sign Up</Link>
         </div> */}
     {/* )} */}
-    <h1>#hashwizard</h1>
+    <h1># hashwizard</h1>
   </nav>
   //   <hr />
   // </div>
