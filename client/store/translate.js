@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {receivedData} from './loading'
 /**
  * ACTION TYPES
  */
@@ -40,6 +40,7 @@ export const translateHashtags = lang => {
     } catch (err) {
       console.log("Couldn't translate data...")
     }
+    dispatch(receivedData())
   }
 }
 

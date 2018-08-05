@@ -1,9 +1,12 @@
 import axios from 'axios'
+import {receivedData} from './loading'
 /**
  * ACTION TYPES
  */
+
 const GET_DATA = 'GET_DATA'
 const DELETE_DATA = 'DELETE_DATA'
+const ADD_CUSTOM = 'ADD_CUSTOM'
 
 /**
  * ACTION CREATORS
@@ -17,13 +20,18 @@ export const deleteData = () => ({
   type: DELETE_DATA
 })
 
+export const addCustom = data => ({
+  type: ADD_CUSTOM,
+  data
+})
+
 const getValues = (data, hashtags) => {
   for (let j = 0; j < data.length; j++) {
     if (data[j].joyLikelihood === 'VERY_LIKELY') {
-      hashtags.push('happy')
+      hashtags.push('happy ')
     }
     if (data[j].surpriseLikelihood === 'VERY_LIKELY') {
-      hashtags.push('surprise')
+      hashtags.push('surprise ')
     }
   }
   return hashtags
@@ -34,7 +42,7 @@ const getValues = (data, hashtags) => {
  */
 const getValuesTwo = (data, hashtags) => {
   for (let i = 0; i < data.length; i++) {
-    hashtags.push(data[i].description)
+    hashtags.push(data[i].description + ' ')
   }
 }
 
@@ -71,6 +79,7 @@ export const getImageData = image => {
     } catch (err) {
       console.log('Something went wrong')
     }
+    dispatch(receivedData())
   }
 }
 
@@ -80,6 +89,8 @@ const googleDataReducer = (state = [], action) => {
       return action.data
     case DELETE_DATA:
       return []
+    case ADD_CUSTOM:
+      return [...state, action.data]
     default:
       return state
   }
