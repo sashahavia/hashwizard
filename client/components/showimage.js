@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getImageData} from '../store/googledata'
 import DisplayHashtags from './displayhashtags'
+import {requestData} from '../store/loading'
 
 const ShowImage = ({image, handleClick}) => {
   if (Object.keys(image).length === 0) {
@@ -11,15 +12,15 @@ const ShowImage = ({image, handleClick}) => {
       // <div className="box">
       <div className="row box">
         <div className="col-sm">
-          <div className="right-view">
-            <img src={image} />
+          <div className="left-view">
             <button
               type="button"
               onClick={() => handleClick(image)}
-              className="btn btn-primary"
+              className="btn btn-light"
             >
-              Get hash tags
+              Create hash tags
             </button>
+            <img src={image} />
           </div>
         </div>
         <div className="col-sm">
@@ -66,6 +67,7 @@ const mapStateDispatch = dispatch => {
           }
         ]
       }
+      dispatch(requestData())
       dispatch(getImageData(data))
     }
   }

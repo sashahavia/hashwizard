@@ -23,7 +23,7 @@ nav a {
 }
 
 form div {
-  margin: 1em;
+  /* margin: 1em; */
   display: inline-block;
 }
 
@@ -84,33 +84,27 @@ nav h1 {
   color: grey;
 }
 
-.custom-file-upload i:hover {
+/* .custom-file-upload i:hover {
   color: #3399ff;
-}
+} */
 
 .custom-file-upload i:active {
   color: #236bb2;
 }
 
+.uploaded,
 .uploaded i {
-  /* color: #3399ff; */
   color: #28a745;
-  /* margin-top: 50%; */
 }
 
-/* .uploaded i {
-  margin-left: 0.25em;
-  margin-bottom: 0.05em;
-} */
-
 .btn-file {
-  margin-left: 1em;
+  margin-left: 0.55em;
   border: 2px solid #333;
   color: #333;
   background-color: white;
   padding: 0.5em;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
 }
 
@@ -125,7 +119,27 @@ nav h1 {
   width: 100%;
 }
 
-.box button {
-  margin-top: 2em;
+.left-view button {
+  width: 100%;
+  /* margin-top: 2em; */
   margin-bottom: 2em;
+}
+
+.right-view .right {
+  margin-top: 2em;
+}
+
+.btn-light,
+.btn-light:hover {
+  border: 1px solid #333;
+}
+
+.btn-left {
+  margin-left: 0.5em;
+  background: #236bb2;
+  border-color: #236bb2;
+}
+
+.box i {
+  margin: 30% 50%;
 }

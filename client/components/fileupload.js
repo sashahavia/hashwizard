@@ -47,13 +47,6 @@ class FileUpload extends Component {
           <div className="popup">
             <div className="wrapper">
               <form onSubmit={this.submitFile}>
-                {/* {this.state.fileImg && (
-                  <p className="uploaded">
-                    {/* <i className="fas fa-file-image fa-7x uploaded" />
-                    <br /> */}
-                {/* {this.state.fileImg}
-                  </p> */}
-                {/* )} */}
                 <div className="file-container">
                   <label className={uploadedClass}>
                     <input

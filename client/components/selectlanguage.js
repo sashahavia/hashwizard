@@ -4,8 +4,9 @@ const SelectLanguage = props => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className="form-group">
-        <label htmlFor="language">Language</label>
-        <select className="form-control" name="language">
+        <label htmlFor="language">Language to translate</label>
+        <select className="form-control" name="language" required>
+          <option value="">Select language</option>
           <option value="es">Spanish</option>
           <option value="ru">Russian</option>
           <option value="de">German</option>
@@ -13,7 +14,7 @@ const SelectLanguage = props => {
           <option value="fr">French</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-info">
+      <button type="submit" className="btn btn-info btn-left">
         Translate
       </button>
     </form>
