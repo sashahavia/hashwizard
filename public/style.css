@@ -143,3 +143,26 @@ nav h1 {
 .box i {
   margin: 30% 50%;
 }
+
+@media screen and (max-width: 415px) {
+  .custom-file-upload input[type='file'] {
+    display: inline;
+  }
+
+  .custom-file-upload {
+    margin-top: 10%;
+    margin-left: 10%;
+    cursor: pointer;
+  }
+
+  .btn-file {
+    margin-left: 15%;
+  }
+
+  nav h1 {
+    margin-left: -3.5em;
+  }
+  form {
+    margin-left: 10%;
+  }
+}
