@@ -51,6 +51,7 @@ class FileUpload extends Component {
                   <label className={uploadedClass}>
                     <input
                       type="file"
+                      capture="camera"
                       onInput={this.handleFileUpload}
                       accept=".png, .jpg, .jpeg"
                     />
