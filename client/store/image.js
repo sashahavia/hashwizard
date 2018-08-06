@@ -22,18 +22,16 @@ export const deleteImage = () => ({
  * THUNK CREATORS
  */
 
-export const imageUpload = (formData, history) => {
+export const imageUpload = formData => {
   return async dispatch => {
-    console.log('History', history)
     try {
       const {data} = await axios.post(`/api/uploads/image-upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
-      console.log('Location ', data.Location)
+      // console.log('Location ', data.Location)
       dispatch(getImage(data.Location))
-      // history.push('/image')
     } catch (err) {
       console.log('No data ...')
     }

@@ -6,6 +6,7 @@ import {receivedData} from './loading'
 
 const GET_TRANSLATION = 'GET_TRANSLATION'
 const DELETE_TRANSLATION = 'DELETE_TRANSLATION'
+const REMOVE_WORD = 'REMOVE_WORD'
 /**
  * ACTION CREATORS
  */
@@ -19,21 +20,26 @@ export const deleteTranslation = () => ({
   type: DELETE_TRANSLATION
 })
 
+export const removeWord = data => ({
+  type: REMOVE_WORD,
+  data
+})
+
 /**
  * THUNK CREATORS
  */
 
 export const translateHashtags = lang => {
   return async (dispatch, getState) => {
-    console.log('Lang', lang)
+    // console.log('Lang', lang)
     const text = getState().data.join(',')
-    console.log('Data in thunk', text)
+    // console.log('Data in thunk', text)
     try {
       const {data} = await axios.post('/api/watson/api', {
         lang: lang,
         text: text
       })
-      console.log('Result in thunk ', data)
+      // console.log('Result in thunk ', data)
       const result = data.split(',')
       let finalResult = [...new Set(result)]
       dispatch(getTranslation(finalResult))
@@ -50,6 +56,10 @@ const watsonTranslateReducer = (state = [], action) => {
       return [...state, ...action.data]
     case DELETE_TRANSLATION:
       return []
+    case REMOVE_WORD: {
+      const index = state.findIndex(elem => elem === action.data)
+      return [...state.slice(0, index), ...state.slice(index + 1)]
+    }
     default:
       return state
   }

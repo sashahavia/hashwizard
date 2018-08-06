@@ -1,13 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {deleteImage} from '../store/image'
-import {deleteData, addCustom} from '../store/googledata'
-import {translateHashtags, deleteTranslation} from '../store/translate'
+import {deleteData, addCustom, removeHash} from '../store/googledata'
+import {
+  translateHashtags,
+  deleteTranslation,
+  removeWord
+} from '../store/translate'
 import SelectLanguage from './selectlanguage'
 import {requestData} from '../store/loading'
 import CustomHashtag from './customhashtag'
 
 const DisplayHashtags = ({
+  deleteWord,
+  deleteHashtag,
   loading,
   data,
   translatedData,
@@ -15,12 +21,6 @@ const DisplayHashtags = ({
   handleSubmit,
   handleCustom
 }) => {
-  // if (data.length > 0) {
-  //   data = data.forEach(elem => {
-  //     elem.replace(/ /g, '')
-  //   })
-  // }
-
   if (loading === true) {
     return (
       <div className="box">
@@ -39,15 +39,21 @@ const DisplayHashtags = ({
         </div>
         <h4>
           {data.map(hashtag => (
-            <span key={hashtag} className="badge badge-pill badge-info">
-              #{hashtag.replace(/ /g, '')}
-              <span />
+            <span
+              key={hashtag}
+              onClick={() => deleteHashtag(hashtag)}
+              className="badge badge-pill badge-info"
+            >
+              #{hashtag.replace(/ /g, '')}&nbsp;
             </span>
           ))}
           {translatedData.map(hashtag => (
-            <span key={hashtag} className="badge badge-pill badge-info">
-              #{hashtag.replace(/ /g, '')}
-              <span />
+            <span
+              key={hashtag}
+              onClick={() => deleteWord(hashtag)}
+              className="badge badge-pill badge-info"
+            >
+              #{hashtag.replace(/ /g, '')}&nbsp;
             </span>
           ))}
         </h4>
@@ -81,17 +87,21 @@ const mapDispatch = dispatch => {
       dispatch(deleteData())
       dispatch(deleteTranslation())
     },
+    deleteHashtag(hashtag) {
+      dispatch(removeHash(hashtag))
+    },
+    deleteWord(hashtag) {
+      dispatch(removeWord(hashtag))
+    },
     handleSubmit(evt) {
       evt.preventDefault()
       const lang = evt.target.language.value
-      // console.log('Language', lang)
       dispatch(requestData())
       dispatch(translateHashtags(lang))
     },
     handleCustom(evt) {
       evt.preventDefault()
       const custom = evt.target.custom.value
-      console.log('Custom', custom)
       dispatch(addCustom(custom))
       evt.target.reset()
     }

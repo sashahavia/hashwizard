@@ -7,6 +7,7 @@ import {receivedData} from './loading'
 const GET_DATA = 'GET_DATA'
 const DELETE_DATA = 'DELETE_DATA'
 const ADD_CUSTOM = 'ADD_CUSTOM'
+const REMOVE_HASH = 'REMOVE_HASH'
 
 /**
  * ACTION CREATORS
@@ -22,6 +23,11 @@ export const deleteData = () => ({
 
 export const addCustom = data => ({
   type: ADD_CUSTOM,
+  data
+})
+
+export const removeHash = data => ({
+  type: REMOVE_HASH,
   data
 })
 
@@ -47,7 +53,7 @@ const getValuesTwo = (data, hashtags) => {
 }
 
 const getWords = data => {
-  console.log('data in words', data)
+  // console.log('data in words', data)
   let hashtags = []
   if (data.labelAnnotations) {
     getValuesTwo(data.labelAnnotations, hashtags)
@@ -69,12 +75,10 @@ const getWords = data => {
 
 export const getImageData = image => {
   return async dispatch => {
-    // console.log('Data in thunk', image)
     try {
       const {data} = await axios.post('api/google/api', image)
-      // console.log('Response ', data.responses[0])
       const words = getWords(data.responses[0])
-      console.log('received words ', words)
+      // console.log('received words ', words)
       dispatch(getData(words))
     } catch (err) {
       console.log('Something went wrong')
@@ -91,6 +95,10 @@ const googleDataReducer = (state = [], action) => {
       return []
     case ADD_CUSTOM:
       return [...state, action.data]
+    case REMOVE_HASH: {
+      const index = state.findIndex(elem => elem === action.data)
+      return [...state.slice(0, index), ...state.slice(index + 1)]
+    }
     default:
       return state
   }

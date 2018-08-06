@@ -22,13 +22,13 @@ class FileUpload extends Component {
   }
 
   handleFileUpload = event => {
-    console.log('Am i here')
+    // console.log('Am i here')
     if (this.state.fileImg) {
       this.setState({fileImg: ''})
     } else {
       this.setState({file: event.target.files}, () => {
         Array.from(this.state.file).forEach(file => {
-          console.log('Do something with ' + file.name)
+          // console.log('Do something with ' + file.name)
           this.setState({fileImg: file.name})
         })
       })
@@ -37,7 +37,7 @@ class FileUpload extends Component {
 
   render() {
     const {image} = this.props
-    console.log('Image ', image)
+    // console.log('Image ', image)
     const uploadedClass = this.state.fileImg
       ? 'custom-file-upload uploaded'
       : 'custom-file-upload'
@@ -51,7 +51,6 @@ class FileUpload extends Component {
                   <label className={uploadedClass}>
                     <input
                       type="file"
-                      capture="camera"
                       onInput={this.handleFileUpload}
                       accept=".png, .jpg, .jpeg"
                     />
@@ -59,7 +58,6 @@ class FileUpload extends Component {
                     <br />Upload an image
                   </label>
                 </div>
-
                 <button type="submit" className="btn btn-secondary btn-file">
                   Submit
                 </button>
@@ -84,9 +82,9 @@ const mapState = state => {
   }
 }
 
-const mapDispatch = (dispatch, ownProps) => {
+const mapDispatch = dispatch => {
   return {
-    imageUpload: file => dispatch(imageUpload(file, ownProps.history))
+    imageUpload: file => dispatch(imageUpload(file))
   }
 }
 // export default withRouter(connect(mapState, mapDispatch)(FileUpload))
