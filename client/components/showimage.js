@@ -17,7 +17,7 @@ const ShowImage = ({image, handleClick}) => {
               onClick={() => handleClick(image)}
               className="btn btn-light"
             >
-              Create hash tags
+              Create hashtags
             </button>
             <img src={image} />
           </div>
