@@ -152,6 +152,7 @@ nav h1 {
 @media screen and (max-width: 480px) {
   .main-container {
     margin: 0 auto;
+    padding-top: 60px;
   }
 
   .left-view,
@@ -161,5 +162,13 @@ nav h1 {
 
   .right-view {
     text-align: center;
+  }
+
+  nav {
+    height: 50px;
+  }
+
+  nav h1 {
+    font-size: 1.8rem;
   }
 }
