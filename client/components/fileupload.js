@@ -38,16 +38,16 @@ class FileUpload extends Component {
   render() {
     const {image} = this.props
     // console.log('Image ', image)
-    const uploadedClass = this.state.fileImg
-      ? 'custom-file-upload uploaded'
-      : 'custom-file-upload'
+    // const uploadedClass = this.state.fileImg
+    //   ? 'custom-file-upload uploaded'
+    //   : 'custom-file-upload'
     if (Object.keys(image).length === 0) {
       return (
         <div className="main-container">
           <div className="popup">
             <div className="wrapper">
               <form onSubmit={this.submitFile}>
-                <div className="file-container">
+                {/* <div className="file-container">
                   <label className={uploadedClass}>
                     <input
                       type="file"
@@ -57,6 +57,20 @@ class FileUpload extends Component {
                     <i className="fas fa-file-image fa-7x" />
                     <br />Upload an image
                   </label>
+                </div> */}
+                <div className="fileUpload">
+                  {/* <span className=""> */}
+                  <button type="button" className="btn btn-secondary btn-file">
+                    <input
+                      type="file"
+                      className="upload"
+                      onInput={this.handleFileUpload}
+                      accept=".png, .jpg, .jpeg"
+                    />
+                    {/* <i className="fas fa-file-image fa-7x" /> */}
+                    <br />Upload an image
+                    {/* </span> */}
+                  </button>
                 </div>
                 <button type="submit" className="btn btn-secondary btn-file">
                   Submit
