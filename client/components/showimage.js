@@ -6,10 +6,9 @@ import {requestData} from '../store/loading'
 
 const ShowImage = ({image, handleClick}) => {
   if (Object.keys(image).length === 0) {
-    return <div className="box">{/* <p>Upload an image to start</p> */}</div>
+    return null
   } else {
     return (
-      // <div className="box">
       <div className="row box">
         <div className="col-sm">
           <div className="left-view">
@@ -27,11 +26,9 @@ const ShowImage = ({image, handleClick}) => {
           <DisplayHashtags />
         </div>
       </div>
-      // </div>
     )
   }
 }
-// }
 
 const mapState = state => {
   return {

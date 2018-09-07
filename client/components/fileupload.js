@@ -22,13 +22,11 @@ class FileUpload extends Component {
   }
 
   handleFileUpload = event => {
-    // console.log('Am i here')
     if (this.state.fileImg) {
       this.setState({fileImg: ''})
     } else {
       this.setState({file: event.target.files}, () => {
         Array.from(this.state.file).forEach(file => {
-          // console.log('Do something with ' + file.name)
           this.setState({fileImg: file.name})
         })
       })
@@ -37,32 +35,30 @@ class FileUpload extends Component {
 
   render() {
     const {image} = this.props
-    // console.log('Image ', image)
     const uploadedClass = this.state.fileImg
       ? 'custom-file-upload uploaded'
       : 'custom-file-upload'
     if (Object.keys(image).length === 0) {
       return (
         <div className="main-container">
-          <div className="popup">
-            <div className="wrapper">
-              <form onSubmit={this.submitFile}>
-                <div className="file-container">
-                  <label className={uploadedClass}>
-                    <input
-                      type="file"
-                      onInput={this.handleFileUpload}
-                      accept=".png, .jpg, .jpeg"
-                    />
-                    <i className="fas fa-file-image fa-7x" />
-                    <br />Upload an image
-                  </label>
-                </div>
-                <button type="submit" className="btn btn-secondary btn-file">
-                  Submit
-                </button>
-              </form>
-            </div>
+          <div className="file-container">
+            <form onSubmit={this.submitFile}>
+              <div className="fileUpload">
+                <span className={uploadedClass}>
+                  <input
+                    type="file"
+                    className="upload"
+                    onChange={this.handleFileUpload}
+                    accept=".png, .jpg, .jpeg"
+                  />
+                  <i className="fas fa-file-image fa-7x" />
+                  <br />Upload an image
+                </span>
+              </div>
+              <button type="submit" className="btn btn-secondary btn-file">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       )
