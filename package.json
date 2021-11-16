@@ -36,7 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "aws-sdk": "^2.368.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.15.3",
     "bluebird": "^3.5.3",
     "compression": "^1.7.3",
