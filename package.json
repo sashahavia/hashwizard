@@ -93,7 +93,7 @@
     "redux-mock-store": "^1.5.3",
     "supertest": "^3.3.0",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-command": "^0.4.2"
   }
 }
